@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #f0f0f0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 30px 20px; /* Asegura que el contenido no se superponga con la navbar */
+  margin-top: 60px; /* Ajusta este valor para asegurar que no se superponga con la navbar */
+  overflow: hidden; /* Oculta la barra de desplazamiento */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.highlight {
+  color: #00ffbe;
+  font-weight: 800;
+}
+
+.frase-categoria{
+  
+  margin-bottom: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.buscador {
+  position: relative; /* Permite que la lista de sugerencias se posicione absolutamente en relación a este contenedor */
+  display: flex;
+  max-width: 600px;
+  align-items: center; /* Alinea verticalmente el input y el botón en el centro */
+  width: 100%; /* Ancho del contenedor */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buscador input {
+  padding: 10px;
+  width: 100%; /* Ocupa todo el ancho disponible dentro del contenedor .buscador */
+  max-width: 400px;
+  margin: 0;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.buscador button {
+  margin-left: 10px; /* Añade un margen a la izquierda para separar el botón del input */
+  background-color: #00ffbe;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Boton Buscar*/
+.buscador button {
+  
+  background-color: #00ffbe;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sugerencias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute; /* Posiciona la lista en relación al contenedor .buscador */
+  top: calc(100% + 5px); /* Alinea debajo del input y el botón con un pequeño margen */
+  left: 0; /* Alinea la lista con el borde izquierdo del contenedor */
+  width: calc(100% - 2px); /* Ajusta el ancho para que sea igual al del input y el botón */
+  max-width: 400px; /* Limita el ancho máximo para no exceder el tamaño del input */
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra ligera */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+.sugerencias li {
+  padding: 12px 16px; /* Aumentar el padding para hacer más cómodos los clics */
+  font-size: 16px; /* Ajustar el tamaño de la fuente */
+  cursor: pointer;
+}
+
+.sugerencias li:hover {
+  background-color: #f0f0f0;
+}
+
+.sugerencias {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra ligera */
+}
+
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categorias button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 32px;
+  height: 80px;
+  width: 150px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+main {
+  flex: 1;
+}
+.content {
+  flex: 1;
+}
+
+
+.container-text {
+  font-size: 48px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+  position: relative;
+  height:400px;
+  text-align: left;
+  font-weight: bold;
+  white-space: nowrap; /* Asegura que el texto no se rompa en múltiples líneas */
+}
+
+
+  .animated-text  {
+  display: inline-block;
+  line-height: 1.2;
+  animation: scrollUp 3s linear forwards; /* Esto asegura que la animación se ejecute durante 5 segundos y luego se detenga en el estado final. */
+}
+
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100%); /* Comienza desde abajo */
+   }
+  100% {
+    transform: translateY(0); /* Se detiene en la posición inicial */
+   }
+} 
+
+
+/*  <--------------------- RESPONSIVE ----------------->*/
+/* 
+
+/*@media (max-width: 728px) {
+  .container-text {
+    font-size: 30px;
+  }
+
+  .buscador input {
+    width: 80%; /* Aumenta el ancho en dispositivos pequeños 
+  }
+
+  .buscador button {
+    font-size: 14px;
+  }
+
+  .categorias button {
+    width: 150px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-text {
+    font-size: 28px;
+  }
+
+  .buscador {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buscador input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .buscador button {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+  .categorias button {
+    width: 120px;
+    height: 50px;
+  }
+} */

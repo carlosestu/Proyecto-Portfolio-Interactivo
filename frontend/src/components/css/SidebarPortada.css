@@ -1,0 +1,194 @@
+.sidebarPortada {
+  margin-top: 300px;
+  width: 8%;
+  height: 500px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #0e6e8b;
+  border: 2px solid black;
+  border-radius: 10px;
+  border-bottom-left-radius: 40% 90px;
+  border-bottom-right-radius: 50% 100px;
+}
+
+.imagen-sidebarPortada {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.imagen-sidebarPortada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.portada-content {
+  background-image: url("../../assets/idea-imagen-portada2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  background-color: #0e6e8b;
+  width: 100%;
+  border: 2px solid black;
+  border-bottom-left-radius: 30% 100px;
+  border-bottom-right-radius: 100% 300px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-top: 550px;
+}
+.portada-content img {
+  margin-left: 400px;
+  width: 800px;
+}
+.indice {
+  padding: 15px;
+  padding-right: 40px;
+  background-color: white;
+  width: 12%;
+  text-align: start;
+  color: black;
+  border: 2px solid black;
+  height: 360px;
+  position: fixed;
+  margin-left: 1150px;
+}
+.indice ul {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+  counter-reset: item;
+  text-align: start;
+}
+.indice li {
+  cursor: pointer;
+  counter-increment: item;
+  position: relative;
+  padding-left: 15px;
+}
+.indice li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: -10px;
+  width: 25px;
+  text-align: right;
+}
+.indice li:hover {
+  background-color: #0e6e8b;
+  padding-left: 30px;
+}
+.indice h2 {
+  cursor: pointer;
+  color: black;
+  margin-left: 70px;
+}
+.indice-y-bienvenida {
+  margin-left: 400px;
+  gap: 500px;
+  display: flex;
+  flex-direction: row;
+}
+.textoBienvenida {
+  width: 570px;
+  height: 200px;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  background-color: #0e6e8b;
+  color: white;
+}
+.titulo-mensajeBienvenida {
+  font-size: 25px;
+  color: white;
+}
+.bienvenida {
+  border: 1px solid black;
+  padding: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: #0e6e8b;
+}
+#SobreMi {
+    border: 1px solid black;
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-top: 400px;
+    margin-left: 400px;
+    background-color: #0e6e8b;
+    width: min-content;
+}
+#SobreMi h2 {
+    color: white;
+    margin-left: 200px;
+    padding-bottom: 20px;
+}
+.sobreMi-Descripcion {
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    width: 570px;
+    height: 800px;
+    background-color: #0e6e8b;
+}
+.enlaces-indice {
+    text-decoration: none;
+    color: black;
+}
+#trayectoria {
+    border: 1px solid black;
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-top: 400px;
+    margin-left: 400px;
+    background-color: #0e6e8b;
+    width: min-content;
+}
+#trayectoria h2 {
+    color: white;
+    margin-left: 200px;
+    padding-bottom: 20px;
+}
+.trayectoria-Descripcion {
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    width: 570px;
+    height: 800px;
+    background-color: #0e6e8b;
+}
+#proyectos-realizados {
+    border: 1px solid black;
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-top: 400px;
+    margin-left: 400px;
+    background-color: #0e6e8b;
+    width: min-content;
+}
+#proyectos-realizados h2 {
+    color: white;
+    margin-left: 200px;
+    padding-bottom: 20px;
+}
+.proyectos-realizados-Descripcion {
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    width: 570px;
+    height: 800px;
+    background-color: #0e6e8b;
+}

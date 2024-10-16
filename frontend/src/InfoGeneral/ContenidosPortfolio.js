@@ -18,7 +18,7 @@ const contenidosIndice = [
     descripcion3: "Por último, este fue nuestro proyecto final, de 3 meses de duración. En esta ocasión, teníamos que diseñar nosotros mismos la página, y hacerla de lo que nosotros quisiéramos. Decidimos hacer una marketplace, llamada FREELANCEHUB. Esta página fue la más completa de todas y en la que más crecimos. Aquí aprendimos a utilizar el backend, teníamos nuestra base de datos con PostgreSQL, también aprendimos a hacer un proyecto con React. Fue un proyecto con bastante frontend (JSX + CSS) y con bastante backend (JS, Express y PostgreSQL, entre otras librerías). Cuando terminamos este proyecto, de repente habíamos terminado el curso, y echando la vista atrás, habíamos crecido un montón, habíamos hecho una página web bastante completa nosotros solos. Fue todo un reto, pero a la vez una satisfacción enorme haberlo conseguido.",
     titulo1: "PORSCHE WEB",
     titulo2: "DOGGY STICKERS",
-    titulo3: "FREELANCEHUB",
+    titulo3: "FREELANCE HUB",
 },
   {
     id: 4,

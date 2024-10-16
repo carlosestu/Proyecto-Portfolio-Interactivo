@@ -117,78 +117,82 @@
   background-color: #0e6e8b;
 }
 #SobreMi {
-    border: 1px solid black;
-    padding: 20px;
-    padding-left: 200px;
-    padding-right: 200px;
-    margin-top: 400px;
-    margin-left: 400px;
-    background-color: #0e6e8b;
-    width: min-content;
+  border: 1px solid black;
+  padding: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-top: 400px;
+  margin-left: 400px;
+  background-color: #0e6e8b;
+  width: min-content;
 }
 #SobreMi h2 {
-    color: white;
-    margin-left: 200px;
-    padding-bottom: 20px;
+  color: white;
+  margin-left: 200px;
+  padding-bottom: 20px;
 }
 .sobreMi-Descripcion {
-    border: none;
-    color: white;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    width: 570px;
-    height: 800px;
-    background-color: #0e6e8b;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  width: 570px;
+  height: 800px;
+  background-color: #0e6e8b;
 }
 .enlaces-indice {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 #trayectoria {
-    border: 1px solid black;
-    padding: 20px;
-    padding-left: 200px;
-    padding-right: 200px;
-    margin-top: 400px;
-    margin-left: 400px;
-    background-color: #0e6e8b;
-    width: min-content;
+  border: 1px solid black;
+  padding: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-top: 400px;
+  margin-left: 400px;
+  background-color: #0e6e8b;
+  width: min-content;
 }
 #trayectoria h2 {
-    color: white;
-    margin-left: 200px;
-    padding-bottom: 20px;
+  color: white;
+  margin-left: 200px;
+  padding-bottom: 20px;
 }
 .trayectoria-Descripcion {
-    border: none;
-    color: white;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    width: 570px;
-    height: 800px;
-    background-color: #0e6e8b;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  width: 570px;
+  height: 800px;
+  background-color: #0e6e8b;
 }
 #proyectos-realizados {
-    border: 1px solid black;
-    padding: 20px;
-    padding-left: 200px;
-    padding-right: 200px;
-    margin-top: 400px;
-    margin-left: 400px;
-    background-color: #0e6e8b;
-    width: min-content;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 400px;
+  margin-left: 100px;
+  background-color: #0e6e8b;
+  width: min-content;
 }
 #proyectos-realizados h2 {
-    color: white;
-    margin-left: 200px;
-    padding-bottom: 20px;
+  color: white;
+  margin-left: 200px;
+  padding-bottom: 20px;
 }
 .proyectos-realizados-Descripcion {
-    border: none;
-    color: white;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    width: 570px;
-    height: 800px;
-    background-color: #0e6e8b;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  width: 180px;
+  height: 800px;
+  background-color: #0e6e8b;
+}
+.carta-proyectos {
+  width: min-content;
 }

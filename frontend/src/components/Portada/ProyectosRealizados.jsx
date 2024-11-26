@@ -20,8 +20,34 @@ import FREELANCEHUB8 from "../../assets/FREELANCEHUB8.png";
 import FREELANCEHUB9 from "../../assets/FREELANCEHUB9.png";
 import FREELANCEHUB10 from "../../assets/FREELANCEHUB10.png";
 import FREELANCEHUB11 from "../../assets/FREELANCEHUB11.png";
+import MostrarImagen from "./Proyectos-mostrar-imagen";
+import DescripcionOverlay from "./Proyectos-Descipcion";
+
 
 function ProyectosRealizados() {
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [descripcion, setDescripcion] = useState("");
+  const [descripcionSeleccionada, setDescripcionSeleccionada] = useState(null);
+
+  const mostrarDescripcion = (index) => {
+    if (index === 0) {
+      setDescripcionSeleccionada(index);
+      setDescripcion(contenidosIndice[2].descripcion1);
+    } else if (index === 1) {
+      setDescripcionSeleccionada(index);
+      setDescripcion(contenidosIndice[2].descripcion2);
+    } else if (index === 2) {
+      setDescripcionSeleccionada(index);
+      setDescripcion(contenidosIndice[2].descripcion3);
+    }
+  };
+  const ocultarDescripcion = () => {
+    setDescripcionSeleccionada(null);
+    setDescripcion("");
+  };
+
   const porsche = [PORSCHE1, PORSCHE2, PORSCHE3, PORSCHE4];
   const doggyStickers = [
     DOGGYSTICKERS1,
@@ -43,10 +69,12 @@ function ProyectosRealizados() {
     FREELANCEHUB10,
     FREELANCEHUB11,
   ];
+
   const [imagenSeleccionadaPorsche, setImagenSeleccionadaPorsche] = useState(0);
   const [imagenSeleccionadaDoggy, setImagenSeleccionadaDoggy] = useState(0);
   const [imagenSeleccionadaFreelance, setImagenSeleccionadaFreelance] =
     useState(0);
+
   const anteriorImagen = (index) => {
     if (index === 0) {
       setImagenSeleccionadaPorsche((prev) => (prev > 0 ? prev - 1 : prev));
@@ -72,100 +100,126 @@ function ProyectosRealizados() {
       );
     }
   };
+
+  const abrirModal = (projectIndex, imageIndex) => {
+    setSelectedProjectIndex(projectIndex);
+    setSelectedImageIndex(imageIndex);
+    setMostrarModal(true);
+  };
+
+  const cerrarModal = () => {
+    setMostrarModal(false);
+    setSelectedProjectIndex(null);
+    setSelectedImageIndex(null);
+  };
+
+  const anteriorImagenModal = () => {
+    setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const siguienteImagenModal = () => {
+    const projectImages = [porsche, doggyStickers, freelanceHub][
+      selectedProjectIndex
+    ];
+    setSelectedImageIndex((prev) =>
+      prev < projectImages.length - 1 ? prev + 1 : prev
+    );
+  };
+
   return (
     <div id="proyectos-realizados">
-      <h2>Proyectos Realizados:</h2>
+      <h2>{contenidosIndice[2].titulo}</h2>
       <div className="contenedor">
         {[...Array(3)].map((_, index) => (
           <div key={index} className="carta-proyectos">
             <h3>
-              {index == 0
+              {index === 0
                 ? contenidosIndice[2].titulo1
-                : index == 1
+                : index === 1
                 ? contenidosIndice[2].titulo2
-                : index == 2
+                : index === 2
                 ? contenidosIndice[2].titulo3
                 : console.error(
                     "Algo inesperado ha ocurrido, por favor, vuelva a intentarlo más tarde."
                   )}
             </h3>
             <div className="imagen-proyecto">
-              {index == 0 ? (
+              {index === 0 ? (
                 imagenSeleccionadaPorsche !== 0 ? (
                   <button onClick={() => anteriorImagen(index)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="300px"
-                    viewBox="0 -960 960 960"
-                    width="50px"
-                    fill="#000000"
-                  >
-                    <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                  fill="#000000"
-                >
-                  <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 )
-              ) : index == 1 ? (
+              ) : index === 1 ? (
                 imagenSeleccionadaDoggy !== 0 ? (
                   <button onClick={() => anteriorImagen(index)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="300px"
-                    viewBox="0 -960 960 960"
-                    width="50px"
-                    fill="#000000"
-                  >
-                    <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                  fill="#000000"
-                >
-                  <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 )
-              ) : index == 2 ? (
+              ) : index === 2 ? (
                 imagenSeleccionadaFreelance !== 0 ? (
                   <button onClick={() => anteriorImagen(index)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="300px"
-                    viewBox="0 -960 960 960"
-                    width="50px"
-                    fill="#000000"
-                  >
-                    <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                  fill="#000000"
-                >
-                  <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
                   </button>
                 )
               ) : (
@@ -175,19 +229,30 @@ function ProyectosRealizados() {
               )}
               <img
                 src={
-                  index == 0
+                  index === 0
                     ? porsche[imagenSeleccionadaPorsche]
-                    : index == 1
+                    : index === 1
                     ? doggyStickers[imagenSeleccionadaDoggy]
-                    : index == 2
+                    : index === 2
                     ? freelanceHub[imagenSeleccionadaFreelance]
                     : console.error(
                         "Algo inesperado ha ocurrido, por favor, vuelva a intentarlo más tarde."
                       )
                 }
                 className="imagen-proyecto-interactiva"
+                onClick={() =>
+                  abrirModal(
+                    index,
+                    index === 0
+                      ? imagenSeleccionadaPorsche
+                      : index === 1
+                      ? imagenSeleccionadaDoggy
+                      : imagenSeleccionadaFreelance
+                  )
+                }
               />
-              {index == 0 ? (
+              <span className="tooltip">Haz clic en la imagen para verla en grande con una breve descripción.</span>
+              {index === 0 ? (
                 imagenSeleccionadaPorsche < porsche.length - 1 ? (
                   <button onClick={() => siguienteImagen(index)}>
                     <svg
@@ -195,25 +260,25 @@ function ProyectosRealizados() {
                       height="300px"
                       viewBox="0 -960 960 960"
                       width="50px"
-                       fill="#000000"
+                      fill="#000000"
                     >
                       <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                     </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                   fill="#000000"
-                >
-                  <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                    </svg>
                   </button>
                 )
-              ) : index == 1 ? (
+              ) : index === 1 ? (
                 imagenSeleccionadaDoggy < doggyStickers.length - 1 ? (
                   <button onClick={() => siguienteImagen(index)}>
                     <svg
@@ -221,25 +286,25 @@ function ProyectosRealizados() {
                       height="300px"
                       viewBox="0 -960 960 960"
                       width="50px"
-                       fill="#000000"
+                      fill="#000000"
                     >
                       <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                     </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                   fill="#000000"
-                >
-                  <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                    </svg>
                   </button>
                 )
-              ) : index == 2 ? (
+              ) : index === 2 ? (
                 imagenSeleccionadaFreelance < freelanceHub.length - 1 ? (
                   <button onClick={() => siguienteImagen(index)}>
                     <svg
@@ -247,22 +312,22 @@ function ProyectosRealizados() {
                       height="300px"
                       viewBox="0 -960 960 960"
                       width="50px"
-                       fill="#000000"
+                      fill="#000000"
                     >
                       <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                     </svg>
                   </button>
                 ) : (
                   <button>
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="300px"
-                  viewBox="0 -960 960 960"
-                  width="50px"
-                   fill="#000000"
-                >
-                  <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="300px"
+                      viewBox="0 -960 960 960"
+                      width="50px"
+                      fill="#000000"
+                    >
+                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                    </svg>
                   </button>
                 )
               ) : (
@@ -271,26 +336,41 @@ function ProyectosRealizados() {
                 )
               )}
             </div>
+            <button className="verDescripcion" onClick={() => mostrarDescripcion(index)}>
+              Ver descripcion del proyecto
+              </button>
           </div>
         ))}
       </div>
+      {mostrarModal && (
+        <MostrarImagen
+          imagen={
+            [porsche, doggyStickers, freelanceHub][selectedProjectIndex][
+              selectedImageIndex
+            ]
+          }
+          imageIndex={selectedImageIndex}
+          projectIndex={selectedProjectIndex}
+          onClose={cerrarModal}
+          onPrevious={anteriorImagenModal}
+          onNext={siguienteImagenModal}
+          isFirst={selectedImageIndex === 0}
+          isLast={
+            selectedImageIndex ===
+            [porsche, doggyStickers, freelanceHub][selectedProjectIndex]
+              .length -
+              1
+          }
+        />
+      )}
+      {descripcionSeleccionada !== null && (
+        <DescripcionOverlay 
+          descripcion={descripcion}
+          onClose={ocultarDescripcion}
+        />
+      )}
     </div>
   );
 }
 
 export default ProyectosRealizados;
-// <textarea
-// readOnly
-// value={
-//   index == 0
-//     ? contenidosIndice[2].descripcion1
-//     : index == 1
-//     ? contenidosIndice[2].descripcion2
-//     : index == 2
-//     ? contenidosIndice[2].descripcion3
-//     : console.error(
-//         "Algo inesperado ha ocurrido, por favor, vuelva a intentarlo más tarde."
-//       )
-// }
-// className="proyectos-realizados-Descripcion"
-// ></textarea>

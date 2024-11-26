@@ -7,8 +7,8 @@ function Indice() {
   const enlace1 = '#SobreMi';
   const enlace2 = '#trayectoria';
   const enlace3 = '#proyectos-realizados';
-  const enlace4 = '#tecnologias-utilizadas';
-  const enlace5 = '#habilidades-y-aptitudes';
+  const enlace4 = '#aptitudes-tecnologias';
+  const enlace5 = '#retos-soluciones';
   const enlace6 = '#proyecto-de-referencia';
   return (
     <div className='indice'>

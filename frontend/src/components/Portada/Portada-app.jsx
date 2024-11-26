@@ -7,6 +7,8 @@ import Bienvenida from './Bienvenida';
 import SobreMí from './SobreMí';
 import Trayectoria from './Trayectoria';
 import ProyectosRealizados from './ProyectosRealizados';
+import Retos from './Retos';
+import Aptitudes from './Aptitudes';
 
 
 function PortadaApp() {
@@ -22,6 +24,8 @@ function PortadaApp() {
       <SobreMí />
       <Trayectoria />
       <ProyectosRealizados />
+      <Aptitudes />
+      <Retos />
       </div>
     );
   }

@@ -1,11 +1,13 @@
 .aptitudes-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px;
     font-family: "Montserrat", sans-serif;
     margin-top: 400px;
     background-color: #0e6e8b;
     border-radius: 10px;
+    padding-left: 150px;
+    padding-right: 150px;
   }
   
   .aptitudes-Descripcion {

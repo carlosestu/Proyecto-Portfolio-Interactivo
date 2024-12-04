@@ -54,19 +54,17 @@ const contenidosIndice = [
   {
     id: 5,
     titulo: "Retos y Soluciones:",
-    reto1: "a",
-    descripcion1: "a",
-    reto2: "a",
-    descripcion2: "a",
-    reto3: "a",
-    descripcion3: "a",
-    reto4: "a",
-    descripcion4: "a",
+    reto1: "Errores en las gestiones del tiempo",
+    descripcion1: "Mi equipo y yo cometimos errores con la gestión del tiempo en los dos primeros proyectos. En el caso del primero, veíamos que el proyecto iba muy bien, así que bajamos un poco el ritmo. Eso provocó que para la última semana faltaran unas cuantas cosas, así que tuvimos que dedicar mucho tiempo cada día de esa semana para completarlo a tiempo. Aun así, no pudimos hacer el responsive. En el segundo proyecto, habíamos aprendido la lección, no podíamos confiarnos porque eso perjudicaría nuestro trabajo. Así que, desde un principio, fuimos a tope. en este caso el error estuvo en el reparto de tareas y en el modelo de trabajo que aplicamos. Con la intención de aprender todos juntos, decidimos hacer casi todo juntos, aunque era mucho más rápido repartir el 100% de las tareas. No hicimos bien los cálculos y las cosas que habíamos dejado para el final resultaron ser las más difíciles. Al final, tuvimos que trabajar por dos de nuevo, pero lo pudimos sacar adelante.",
+    reto2: "Aprender a presentar un trabajo correctamente ",
+    descripcion2: "Cuando comencé el bootcamp, no sabía como presentar algo, para programar aprendía muy rápido y muy bien, ya que es algo que me ha apasionado desde el principio, sin embargo presentar no fue tan fácil, mi primera presentación junto a mi equipo, no estvo del todo mal, pero cuando terminé sabía que podria haberlo hecho bastante mejor. La segunda presentación quise hacerlo mucho mejor, quise describir mas en profundidad mi trabajo, pensando que sería mejor, pero fui demasiado técnico, invertí mucho tiempo en explicar como funcionaba cada cosa de la página, lo cual no es efectivo en caso de que la persona a la que estes presentando no sea desarrollador/a, asi que en ambos casos aprendí de mis errores, y en la presentación final considero que estuve mucho mejor, hablando bien, con seguridad, y hablando siempre desde el punto visual, dejando las cosas tecnicas para el momento de las preguntas, para asi aprovechar el tiempo de presentación para vender bien mi trabajo.",
+    reto3: "Estructurar bien los proyectos.",
+    descripcion3: "El tercer desafío del que quiero hablar es la estructura de los proyectos. Cuando comenzamos a trabajar en proyectos, no sabíamos mucho aún, y por supuesto, la estructura no era la mejor. En el proyecto de la página de Porsche, la estructura era casi inexistente; teníamos un archivo HTML, otro CSS y otro de JavaScript. Esto, por supuesto, es demasiado complejo a la hora de hacer un cambio en el proyecto y no es óptimo. Con el segundo proyecto, ya empezamos a crear una estructura mejor. Ya teníamos un archivo por sección y todo estaba bastante más legible y optimizado. Por último, en el tercer proyecto llegó React, y ahí sí que comprendimos a la perfección cómo se debía estructurar un proyecto. Separamos todo por componentes, de este modo, si otra persona necesita cambiar algo en lo que he trabajado, solo tiene que buscar en el componente que corresponda, y rápidamente se orientará y podrá hacer el cambio que sea necesario.",
   },
   {
     id: 6,
     titulo: "Proyecto de referencia:",
-    descripcion: "a",
+    descripcion: "A continuación, como he mencionado en secciones anteriores, se mostrará un proyecto a modo de referencia, en el que pretendo mostrar todo lo que he aprendido durante mi formación, incluyendo tanto backend como frontend. La intención de este proyecto es mostrar diversas páginas programadas por mí. Primero, para no dejar de trabajar durante este proceso de búsqueda de empleo y seguir creciendo, y segundo, para darle la posibilidad a todo el mundo de ver mis cualidades como desarrollador web. Al hacer clic en el siguiente enlace, navegará a la introducción a dicho proyecto.",
   },
 ];
 export default contenidosIndice;

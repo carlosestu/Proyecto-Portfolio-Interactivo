@@ -31,10 +31,11 @@ const upload = multer({
 //tabla users routes
 router.get('/users', userController.getAllUsers);
 router.get('/users/:userId', userController.getUser);
+router.get('/users/:userId/tokens', userController.getTokens);
 router.post('/users', userController.createUser);
 router.post('/users/login', userController.logIn);
-router.post('/users/token', userController.checkIfLoged);
-router.put('/users/logout', userController.logOut);
+router.post('/users/token', userController.refreshAccessToken);
+router.delete('/users/logout', userController.logOut);
 router.delete('/users', userController.deleteUser);
 router.get('/test', (req, res) => {
     res.json({ message: 'Server is running' });

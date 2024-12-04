@@ -22,7 +22,7 @@ import FREELANCEHUB10 from "../../assets/FREELANCEHUB10.png";
 import FREELANCEHUB11 from "../../assets/FREELANCEHUB11.png";
 import MostrarImagen from "./Proyectos-mostrar-imagen";
 import DescripcionOverlay from "./Proyectos-Descipcion";
-
+import "./portada-css/proyectos.css";
 
 function ProyectosRealizados() {
   const [mostrarModal, setMostrarModal] = useState(false);

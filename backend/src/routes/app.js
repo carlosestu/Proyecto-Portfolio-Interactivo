@@ -18,7 +18,6 @@ app.use(
 
 // Luego, configura otros middleware
 app.use(express.json());
-app.use(passport.initialize());
 
 // Importa las rutas
 const userRoutes = require("../routes/userRoutes");
@@ -46,12 +45,21 @@ const createTableFunction = async () => {
         email VARCHAR(100) NOT NULL UNIQUE,
         password_hash TEXT NOT NULL,
         full_name VARCHAR(50),
-        date_of_birth TIMESTAMP NOT NULL,
-        token TEXT
+        date_of_birth TIMESTAMP NOT NULL
       );
     `);
     console.log("Tabla de usuarios verificada o creada");
 
+    // crear la tabla para el token
+await pool.query(`
+    CREATE TABLE IF NOT EXISTS refresh_tokens (
+      token_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      user_id UUID NOT NULL REFERENCES users(user_id),
+      token TEXT NOT NULL,
+      expires_at TIMESTAMP NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    `);
    
   } catch (error) {
     console.error("Error al crear las tablas o la extensión:", error);

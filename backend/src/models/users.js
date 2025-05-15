@@ -64,8 +64,62 @@ const getUserByEmail = async (userDataTry) => {
     );
     return result.rowCount > 0;
   };
+  const deleteUserImage = async (userId) => {
+    const result = await pool.query(
+      'DELETE FROM user_images WHERE user_id = $1 RETURNING *',
+      [userId]
+    );
+    return result.rowCount > 0;
+  };
   const getRefreshTokensByUserId = async (userId) => {
     const result = await pool.query(`SELECT * FROM refresh_tokens WHERE user_id = $1`, [userId]);
     return result.rows; 
   };
-module.exports = { getUsers, saveRefreshToken, getUserById, createUser, getUserByEmail, generateToken, deleteUser, getRefreshTokensByUserId, deleteToken };
+  const updateRefreshToken = async (userId, token) => {
+    try {
+      await pool.query(`
+        UPDATE refresh_tokens 
+        SET token = $2, expires_at = NOW() + INTERVAL '7 days'
+        WHERE user_id = $1
+      `, [userId, token]);
+    } catch (error) {
+      console.error("Error al guardar el token de refresco:", error);
+    }
+  }
+  const createUserImage = async (userId, imageData, imageMimeType) => {
+    const result = await pool.query(`
+      INSERT INTO user_images (user_id, image_data, image_mime_type)
+      VALUES ($1, $2, $3)
+      RETURNING *
+    `, [userId, imageData, imageMimeType]);
+    return result.rows[0];
+  };
+  const updateUserImage = async (userId, imageData, imageMimeType) => {
+    const result = await pool.query(`
+      UPDATE user_images
+      SET image_data = $2, image_mime_type = $3, is_default = FALSE, updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = $1
+      RETURNING *
+    `, [userId, imageData, imageMimeType]);
+    return result.rows[0];
+  };
+  const getUserImageById = async (userId) => {
+    const result = await pool.query("SELECT * FROM user_images WHERE user_id = $1", [userId]);
+    return result.rows[0];
+  };
+  
+module.exports = { 
+    getUsers,
+    saveRefreshToken,
+    getUserById,
+    createUser, getUserByEmail,
+    generateToken,
+    deleteUser,
+    getRefreshTokensByUserId,
+    deleteToken,
+    updateRefreshToken,
+    createUserImage,
+    updateUserImage,
+    getUserImageById,
+    deleteUserImage  
+  };

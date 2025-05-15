@@ -2,10 +2,10 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const multer = require('multer');
 const path = require('path'); 
 const fs = require('fs'); 
 const passport = require('../config/passport');
+const multer = require('multer');
 
 //creacion de un archivo upload para guardar imagenes y configuracion de multer
 const uploadDir = path.join(__dirname, 'uploads');
@@ -30,11 +30,15 @@ const upload = multer({
 
 //tabla users routes
 router.get('/users', userController.getAllUsers);
-router.get('/users/:userId', userController.getUser);
-router.get('/users/:userId/tokens', userController.getTokens);
+router.get('/users/refreshCoockieCheck', userController.refreshCoockieCheck);
+router.get('/users/:userId/image', userController.getImage);
+router.get('/users/:userId/', userController.getUser);
+router.get('/users/:userId/tokens', userController.getTokensByParams);
 router.post('/users', userController.createUser);
+router.post('/users/id', userController.getUserIdByEmail);
 router.post('/users/login', userController.logIn);
 router.post('/users/token', userController.refreshAccessToken);
+router.put('/users/image/change', upload.single('image'), userController.updateUserImage);
 router.delete('/users/logout', userController.logOut);
 router.delete('/users', userController.deleteUser);
 router.get('/test', (req, res) => {
